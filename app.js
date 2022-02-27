@@ -24,12 +24,18 @@ const showPlayer = players =>{
         <h5>Country:${player.strNationality}</h5>
         <p></p>
         <div class="allbutton">
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn delete-btn btn-danger">Delete</button>
           <button onclick="details('${player.idPlayer}')" class="btn btn-success">Details</button>
         </div>
       </div>
       `
       parent.appendChild(div)
+      const allButtons =document.getElementsByClassName('delete-btn')
+      for(const button of allButtons){
+        button.addEventListener('click',function(e){
+          e.target.parentNode.parentNode.style.display ='none'
+        })
+      }
       //   console.log(player)
     }
     document.getElementById('spinner').style.display ="none"
